@@ -3,7 +3,7 @@ export let cart = JSON.parse(localStorage.getItem('cart'));
 if(!cart){
     cart = [{
     id : 'e43638ce-6aa0-4b85-b27f-e1d07eb678c6',
-    quantity : 2
+    quantity : 2,
     
 },
 {
@@ -23,7 +23,7 @@ export function cart_quantity(productId){
     let matchingItem;
   
     cart.forEach((item) => {
-        if (productId === item.productId) {
+        if (productId === item.id) {
         matchingItem = item;
         }
     });
@@ -32,7 +32,7 @@ export function cart_quantity(productId){
         matchingItem.quantity += 1;
     } else {
         cart.push({
-        productId: productId,
+        id: productId,
         quantity: 1
         });
     }
